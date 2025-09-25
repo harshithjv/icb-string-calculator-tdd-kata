@@ -6,7 +6,13 @@ class StringCalculator:
         if numbers == "":
             return 0
 
-        numbers_split = re.split(r",|\n", numbers)
+        delimiter = r",|\n"
+        if numbers.startswith("//"):
+            split_result = numbers[2:].split("\n")
+            delimiter, numbers = split_result
+            
+
+        numbers_split = re.split(delimiter, numbers)
         sum = 0
         for number in numbers_split:
             try:

@@ -14,3 +14,6 @@ def test_multiple_numbers_comma_delimited_returns_sum():
 
 def test_multiple_numbers_multi_delimited_returns_sum():
     assert str_calc.add("6,3\n5,2\n8,4,2") == 30
+
+def test_numbers_with_custom_delimiter_returns_sum():
+    assert str_calc.add("//;\n5;2;8") == 15
