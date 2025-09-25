@@ -1,3 +1,4 @@
+import re
 
 
 class StringCalculator:
@@ -5,7 +6,7 @@ class StringCalculator:
         if numbers == "":
             return 0
 
-        numbers_split = numbers.split(",")
+        numbers_split = re.split(r",|\n", numbers)
         sum = 0
         for number in numbers_split:
             try:
