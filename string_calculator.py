@@ -23,6 +23,8 @@ class StringCalculator:
             else:
                 if num < 0:
                     negative_nums.append(str(num))
+                elif num > 1000:
+                    pass
                 else:
                     sum += num
 

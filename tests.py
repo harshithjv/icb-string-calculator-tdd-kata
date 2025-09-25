@@ -1,6 +1,7 @@
 import pytest
 from string_calculator import StringCalculator
 
+
 str_calc = StringCalculator()
 
 def test_empty_string_return_0():
@@ -25,3 +26,6 @@ def test_numbers_with_custom_delimiter_returns_sum():
 def test_numbers_with_negative_number_should_raise_exception(nums, expected_message):
     with pytest.raises(ValueError, match=expected_message):
         str_calc.add(nums)
+
+def test_numbers_return_sum_ignore_number_greater_than_thousand():
+    assert str_calc.add("45,1551,55") == 100
