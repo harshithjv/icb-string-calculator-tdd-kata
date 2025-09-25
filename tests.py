@@ -1,4 +1,4 @@
-# import pytest
+import pytest
 from string_calculator import StringCalculator
 
 str_calc = StringCalculator()
@@ -17,3 +17,11 @@ def test_multiple_numbers_multi_delimited_returns_sum():
 
 def test_numbers_with_custom_delimiter_returns_sum():
     assert str_calc.add("//;\n5;2;8") == 15
+
+@pytest.mark.parametrize("nums,expected_message", [
+    ("-1,-2", "Negatives not allowed: -1"),
+    ("8,-4,2,-5", "Negatives not allowed: -4,-5"),
+])
+def test_numbers_with_negative_number_should_raise_exception(nums, expected_message):
+    with pytest.raises(ValueError, match=expected_message):
+        str_calc.add(nums)
