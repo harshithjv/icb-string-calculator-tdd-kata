@@ -29,3 +29,6 @@ def test_numbers_with_negative_number_should_raise_exception(nums, expected_mess
 
 def test_numbers_return_sum_ignore_number_greater_than_thousand():
     assert str_calc.add("45,1551,55") == 100
+
+def test_numbers_with_long_length_delimiter_returns_sum():
+    assert str_calc.add("//[-.=]\n3-.=1-.=8") == 12
