@@ -10,9 +10,10 @@ class StringCalculator:
         if numbers.startswith("//"):
             split_result = numbers[2:].split("\n")
             delimiter, numbers = split_result
-            re_match = re.match(r"\[.*\]", delimiter)
-            if re_match:
-                delimiter = re_match.string.replace("[", "").replace("]", "")
+            finds = re.findall(r'\[([^\]]+)\]', delimiter)
+            if finds:
+                delimiter = "|".join([f"[{find}]" for find in finds])
+                delimiter = rf"{delimiter}"
 
         numbers_split = re.split(delimiter, numbers)
         sum = 0

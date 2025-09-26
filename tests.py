@@ -32,3 +32,6 @@ def test_numbers_return_sum_ignore_number_greater_than_thousand():
 
 def test_numbers_with_long_length_delimiter_returns_sum():
     assert str_calc.add("//[-.=]\n3-.=1-.=8") == 12
+
+def test_numbers_with_multiple_long_length_delimiters_returns_sum():
+    assert str_calc.add("//[=][***]\n3=1***8=3") == 15
